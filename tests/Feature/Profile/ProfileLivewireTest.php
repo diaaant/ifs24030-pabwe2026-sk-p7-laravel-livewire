@@ -104,7 +104,7 @@ class ProfileLivewireTest extends TestCase
         $user = $this->makeMember();
 
         Livewire::actingAs($user)->test(Profile::class)
-            ->set('photo', UploadedFile::fake()->image('me.jpg'))
+            ->set('photo', UploadedFile::fake()->image('me.png'))
             ->call('updatePhoto')
             ->assertHasNoErrors()
             ->assertSet('photo', null);

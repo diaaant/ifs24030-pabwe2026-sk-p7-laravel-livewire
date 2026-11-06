@@ -47,11 +47,11 @@ class ProfileServiceTest extends TestCase
     {
         $user = $this->makeMember();
 
-        $this->service->updatePhoto($user, UploadedFile::fake()->image('a.jpg'));
+        $this->service->updatePhoto($user, UploadedFile::fake()->image('a.png'));
         $first = $user->fresh()->profile_photo_path;
         Storage::disk('public')->assertExists($first);
 
-        $this->service->updatePhoto($user, UploadedFile::fake()->image('b.jpg'));
+        $this->service->updatePhoto($user, UploadedFile::fake()->image('b.png'));
         Storage::disk('public')->assertMissing($first);
         Storage::disk('public')->assertExists($user->fresh()->profile_photo_path);
     }

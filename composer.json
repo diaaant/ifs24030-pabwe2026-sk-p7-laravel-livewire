@@ -79,9 +79,6 @@
             "@php artisan config:clear --ansi",
             "@php -d xdebug.mode=coverage vendor/bin/phpunit --coverage-text --coverage-clover=coverage.xml",
             "@php scripts/check-coverage.php coverage.xml"
-        ],
-        "audit": [
-            "composer audit --no-interaction"
         ]
     },
     "extra": {

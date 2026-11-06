@@ -54,7 +54,7 @@ class StockExcelService
      */
     public function import(string $path): array
     {
-        $rows = IOFactory::load($path)->getActiveSheet()->toArray(null, true, false, false);
+        $rows = IOFactory::createReader(IOFactory::READER_XLSX)->load($path)->getActiveSheet()->toArray(null, true, false, false);
         array_shift($rows);
 
         $items = [];

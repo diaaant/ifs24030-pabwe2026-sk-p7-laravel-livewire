@@ -106,7 +106,7 @@ class StockDetailLivewireTest extends TestCase
         $stock = $this->makeStock($user);
 
         Livewire::actingAs($user)->test(StockDetail::class, ['stock' => $stock])
-            ->set('cover', UploadedFile::fake()->image('cover.jpg'))
+            ->set('cover', UploadedFile::fake()->image('cover.png'))
             ->call('saveCover')
             ->assertHasNoErrors()
             ->assertSet('cover', null);

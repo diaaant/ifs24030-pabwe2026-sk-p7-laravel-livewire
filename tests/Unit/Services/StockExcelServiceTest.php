@@ -33,7 +33,7 @@ class StockExcelServiceTest extends TestCase
     {
         $user = $this->makeMember();
         $this->makeStock($user, ['name' => 'Pulpen', 'sku' => 'P-1', 'quantity' => 10, 'unit' => 'box', 'price' => 2500, 'min_stock' => 3]);
-        $this->makeStock($user, ['name' => 'Tanpa Harga', 'sku' => null, 'price' => null, 'quantity' => 0]);
+        $this->makeStock($user, ['name' => 'Tanpa Harga', 'sku' => null, 'price' => null, 'quantity' => 0, 'status' => 'out_of_stock']);
 
         $content = (new StockExcelService)->export($user->stocks()->orderBy('id')->get());
 

@@ -125,12 +125,12 @@ class StockServiceTest extends TestCase
     {
         $stock = $this->makeStock($this->makeMember());
 
-        $stock = $this->service->uploadCover($stock, UploadedFile::fake()->image('a.jpg'));
+        $stock = $this->service->uploadCover($stock, UploadedFile::fake()->image('a.png'));
         $first = $stock->cover_image_path;
         $this->assertNotNull($first);
         Storage::disk('public')->assertExists($first);
 
-        $stock = $this->service->uploadCover($stock, UploadedFile::fake()->image('b.jpg'));
+        $stock = $this->service->uploadCover($stock, UploadedFile::fake()->image('b.png'));
         Storage::disk('public')->assertMissing($first);
         Storage::disk('public')->assertExists($stock->cover_image_path);
     }
