@@ -14,8 +14,10 @@
                 <div class="flex h-20 w-20 items-center justify-center rounded-full bg-indigo-500 text-2xl font-semibold text-white">{{ strtoupper(substr($user->name, 0, 1)) }}</div>
             @endif
             <form wire:submit="updatePhoto" class="space-y-2">
-                <input type="file" wire:model="photo" accept="image/*" class="text-sm">
-                @error('photo') <p class="text-xs text-red-600">{{ $message }}</p> @enderror
+                <!-- Perbaikan: Menambahkan label tersembunyi -->
+                <label for="profile-photo" class="sr-only">Upload Foto</label>
+                <input id="profile-photo" type="file" wire:model="photo" accept="image/*" class="text-sm">
+                @error('photo') <p class="text-xs text-red-700">{{ $message }}</p> @enderror
                 <button type="submit" class="rounded bg-slate-800 px-3 py-1 text-sm font-semibold text-white">Upload Foto</button>
             </form>
         </div>
@@ -25,21 +27,21 @@
         <h2 class="mb-4 text-lg font-bold">Data Akun</h2>
         <form wire:submit="updateProfile" class="space-y-4">
             <div>
-                <label class="mb-1 block text-sm font-medium">Nama</label>
-                <input type="text" wire:model="name" class="w-full rounded border border-slate-300 px-3 py-2">
-                @error('name') <p class="mt-1 text-xs text-red-600">{{ $message }}</p> @enderror
+                <label for="prof-name" class="mb-1 block text-sm font-medium">Nama</label>
+                <input id="prof-name" type="text" wire:model="name" class="w-full rounded border border-slate-300 px-3 py-2">
+                @error('name') <p class="mt-1 text-xs text-red-700">{{ $message }}</p> @enderror
             </div>
             <div>
-                <label class="mb-1 block text-sm font-medium">Username</label>
-                <input type="text" wire:model="username" class="w-full rounded border border-slate-300 px-3 py-2">
-                @error('username') <p class="mt-1 text-xs text-red-600">{{ $message }}</p> @enderror
+                <label for="prof-username" class="mb-1 block text-sm font-medium">Username</label>
+                <input id="prof-username" type="text" wire:model="username" class="w-full rounded border border-slate-300 px-3 py-2">
+                @error('username') <p class="mt-1 text-xs text-red-700">{{ $message }}</p> @enderror
             </div>
             <div>
-                <label class="mb-1 block text-sm font-medium">Email (opsional)</label>
-                <input type="email" wire:model="email" class="w-full rounded border border-slate-300 px-3 py-2">
-                @error('email') <p class="mt-1 text-xs text-red-600">{{ $message }}</p> @enderror
+                <label for="prof-email" class="mb-1 block text-sm font-medium">Email (opsional)</label>
+                <input id="prof-email" type="email" wire:model="email" class="w-full rounded border border-slate-300 px-3 py-2">
+                @error('email') <p class="mt-1 text-xs text-red-700">{{ $message }}</p> @enderror
             </div>
-            <button type="submit" class="rounded bg-indigo-600 px-4 py-2 text-sm font-semibold text-white">Simpan Profil</button>
+            <button type="submit" class="rounded bg-indigo-700 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-800">Simpan Profil</button>
         </form>
     </section>
 
@@ -47,20 +49,20 @@
         <h2 class="mb-4 text-lg font-bold">Ubah Password</h2>
         <form wire:submit="updatePassword" class="space-y-4">
             <div>
-                <label class="mb-1 block text-sm font-medium">Password Saat Ini</label>
-                <input type="password" wire:model="current_password" class="w-full rounded border border-slate-300 px-3 py-2">
-                @error('current_password') <p class="mt-1 text-xs text-red-600">{{ $message }}</p> @enderror
+                <label for="prof-current-password" class="mb-1 block text-sm font-medium">Password Saat Ini</label>
+                <input id="prof-current-password" type="password" wire:model="current_password" class="w-full rounded border border-slate-300 px-3 py-2">
+                @error('current_password') <p class="mt-1 text-xs text-red-700">{{ $message }}</p> @enderror
             </div>
             <div>
-                <label class="mb-1 block text-sm font-medium">Password Baru</label>
-                <input type="password" wire:model="password" class="w-full rounded border border-slate-300 px-3 py-2">
-                @error('password') <p class="mt-1 text-xs text-red-600">{{ $message }}</p> @enderror
+                <label for="prof-new-password" class="mb-1 block text-sm font-medium">Password Baru</label>
+                <input id="prof-new-password" type="password" wire:model="password" class="w-full rounded border border-slate-300 px-3 py-2">
+                @error('password') <p class="mt-1 text-xs text-red-700">{{ $message }}</p> @enderror
             </div>
             <div>
-                <label class="mb-1 block text-sm font-medium">Konfirmasi Password Baru</label>
-                <input type="password" wire:model="password_confirmation" class="w-full rounded border border-slate-300 px-3 py-2">
+                <label for="prof-confirm-password" class="mb-1 block text-sm font-medium">Konfirmasi Password Baru</label>
+                <input id="prof-confirm-password" type="password" wire:model="password_confirmation" class="w-full rounded border border-slate-300 px-3 py-2">
             </div>
-            <button type="submit" class="rounded bg-indigo-600 px-4 py-2 text-sm font-semibold text-white">Ubah Password</button>
+            <button type="submit" class="rounded bg-indigo-700 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-800">Ubah Password</button>
         </form>
     </section>
 </div>

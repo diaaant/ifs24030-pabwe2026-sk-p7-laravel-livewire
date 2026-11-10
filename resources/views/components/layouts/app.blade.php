@@ -4,8 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
-    <!-- Perbaikan SEO: Menambahkan meta description -->
     <meta name="description" content="Aplikasi Inventaris Stok Barang untuk memanajemen persediaan secara efisien.">
     
     <title>{{ $title ?? config('app.name') }} - {{ config('app.name') }}</title>
@@ -33,11 +31,12 @@
                 @endif
                 <div class="min-w-0">
                     <div class="truncate text-sm font-semibold">{{ auth()->user()->name }}</div>
-                    <div class="text-xs uppercase text-slate-400">{{ auth()->user()->role }}</div>
+                    <!-- Perbaikan Kontras: slate-400 -> slate-300 -->
+                    <div class="text-xs uppercase text-slate-300">{{ auth()->user()->role }}</div>
                 </div>
             </div>
 
-            <nav class="space-y-1 text-sm">
+            <nav class="space-y-1 text-sm" aria-label="Navigasi Utama">
                 @if (auth()->user()->isAdmin())
                     <a href="{{ route('admin.users') }}" class="block rounded px-3 py-2 hover:bg-slate-800 {{ request()->routeIs('admin.*') ? 'bg-slate-800' : '' }}">Daftar User</a>
                 @else
