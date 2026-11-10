@@ -4,6 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    
+    <!-- Perbaikan SEO: Menambahkan meta description -->
+    <meta name="description" content="Aplikasi Inventaris Stok Barang untuk memanajemen persediaan secara efisien.">
+    
     <title>{{ $title ?? config('app.name') }} - {{ config('app.name') }}</title>
     <link rel="icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml">
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
